@@ -3,6 +3,7 @@ buildscript {
         kotlinVersion = '1.2.0'
         springBootVersion = '1.5.9.RELEASE'
         guavaVersion = '21.0'
+        jacksonKotlinModuleVersion = '2.9.0'
 
         junitPlatformVersion = '1.0.2'
         junitJupiterVersion = '5.0.2'
@@ -60,6 +61,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonKotlinModuleVersion}")
 
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('com.h2database:h2')

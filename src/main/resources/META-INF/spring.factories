@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.staynoob.cu.autoconfigure.CuAutoConfiguration

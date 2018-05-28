@@ -1,6 +1,4 @@
 package cn.staynoob.cu.annotation
 
-@Target(
-        AnnotationTarget.PROPERTY
-)
+@Target(AnnotationTarget.PROPERTY)
 annotation class Ignore

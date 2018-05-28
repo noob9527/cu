@@ -4,4 +4,7 @@ import cn.staynoob.cu.domain.Reference
 
 class ReferenceNotFoundException(
         reference: Reference
-) : RuntimeException("reference: $reference does't exist")
+) : Exception("reference: $reference does't exist") {
+    override val message: String
+        get() = super.message!!
+}

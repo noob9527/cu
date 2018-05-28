@@ -1,7 +1,6 @@
 package cn.staynoob.cu
 
-import kotlin.reflect.KClass
-import kotlin.reflect.KFunction
+import cn.staynoob.cu.exception.ReferenceNotFoundException
 
 
 /**
@@ -14,17 +13,15 @@ import kotlin.reflect.KFunction
  * 2. entity reference
  * refer to existed entity
  *
- * 3. other request dto
+ * 3. other source
  * this usually happens while corresponding entity property has
  * CascadeType.PERSIST annotation.
  */
 interface Cu {
 
-    fun <T : Any> create(
-            targetClass: KClass<T>,
-            source: Any,
-            constructor: KFunction<T>? = null
-    ): T
+    @Throws(ReferenceNotFoundException::class)
+    fun <T : Any> create(source: CuSource<T>): T
 
-    fun <T : Any> update(targetObj: T, source: Any): T
+    @Throws(ReferenceNotFoundException::class)
+    fun <T : Any> update(target: T, source: CuSource<T>)
 }
