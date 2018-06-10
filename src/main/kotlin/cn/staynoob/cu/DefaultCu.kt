@@ -71,7 +71,7 @@ open class DefaultCu(
                     }
                 }.toMap()
 
-        return source.argumentsAdapter(argMap)
+        return source.toArguments(argMap)
     }
 
     private fun mapSingleValue(

@@ -13,7 +13,8 @@ interface CuSource<T : Any> {
 
     val targetClass: KClass<T>
 
-    val argumentsAdapter: (Map<String, Any?>) -> Map<String, Any?>
-        get() = { it }
+    fun toArguments(map: Map<String, Any?>): Map<String, Any?> {
+        return map
+    }
 }
 
