@@ -93,6 +93,18 @@ class UtilsTest {
             Utils.assignProperties(instance, mapOf("foo" to 0))
             assertThat(instance.foo).isNull()
         }
+
+        @Test
+        @DisplayName("should ignore inaccessable property")
+        fun test300() {
+            class Foo {
+                var foo: String? = null
+                    private set
+            }
+            val instance = Foo()
+            Utils.assignProperties(instance, mapOf("foo" to "foo"))
+            assertThat(instance.foo).isNull()
+        }
     }
 
     @Nested

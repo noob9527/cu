@@ -1,16 +1,12 @@
 package cn.staynoob.cu
 
 import org.apache.log4j.Logger
-import kotlin.reflect.KAnnotatedElement
-import kotlin.reflect.KClass
-import kotlin.reflect.KFunction
-import kotlin.reflect.KMutableProperty
+import kotlin.reflect.*
 import kotlin.reflect.full.*
 import kotlin.reflect.jvm.jvmErasure
 
 
-inline fun <reified T : Annotation> KAnnotatedElement.isAnnotationPresent()
-        = this.findAnnotation<T>() != null
+inline fun <reified T : Annotation> KAnnotatedElement.isAnnotationPresent() = this.findAnnotation<T>() != null
 
 object Utils {
     private val log = Logger.getLogger(Cu::class.java)
@@ -21,7 +17,7 @@ object Utils {
             constructor: KFunction<T>? = null
     ): T {
         val func: KFunction<T> = constructor ?: targetClazz.primaryConstructor
-                ?: throw IllegalArgumentException("class should have a primary constructor: $targetClazz")
+        ?: throw IllegalArgumentException("class should have a primary constructor: $targetClazz")
 
         // create instance
         val argMap = func.valueParameters
@@ -47,6 +43,9 @@ object Utils {
             val prop = mutableProps
                     .firstOrNull { it.name == entry.key }
                     ?: continue
+
+            if (prop.setter.visibility != KVisibility.PUBLIC) continue
+
             try {
                 prop.setter.call(instance, entry.value)
             } catch (e: IllegalArgumentException) {
