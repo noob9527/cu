@@ -1,4 +1,4 @@
-package cn.staynoob.cu
+package cn.staynoob.cu.base
 
 import cn.staynoob.cu.autoconfigure.CuAutoConfiguration
 import org.springframework.beans.factory.annotation.Autowired

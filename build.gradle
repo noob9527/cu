@@ -63,6 +63,8 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonKotlinModuleVersion}")
 
+    compile("com.google.guava:guava:${guavaVersion}")
+
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('com.h2database:h2')
 

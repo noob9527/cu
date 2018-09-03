@@ -1,4 +1,4 @@
-package cn.staynoob.cu.fixture.source
+package cn.staynoob.cu.fixture.source.hostfirst
 
 import cn.staynoob.cu.fixture.AbstractEntity
 import javax.persistence.Entity

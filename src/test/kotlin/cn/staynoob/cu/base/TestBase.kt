@@ -1,4 +1,4 @@
-package cn.staynoob.cu
+package cn.staynoob.cu.base
 
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.boot.test.context.ConfigFileApplicationContextInitializer
