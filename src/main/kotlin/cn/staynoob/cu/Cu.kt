@@ -20,7 +20,9 @@ import cn.staynoob.cu.exception.ReferenceNotFoundException
 interface Cu {
 
     @Throws(ReferenceNotFoundException::class)
-    fun <T : Any> create(source: CuSource<T>): T
+    fun <T : Any> create(
+            source: CuSource<T>
+    ): T
 
     @Throws(ReferenceNotFoundException::class)
     fun <T : Any> update(target: T, source: CuSource<T>)

@@ -13,8 +13,12 @@ interface CuSource<T : Any> {
 
     val targetClass: KClass<T>
 
-    fun toArguments(map: Map<String, Any?>): Map<String, Any?> {
-        return map
+    fun beforeCreateInstance(arguments: Map<String, Any?>): Map<String, Any?> {
+        return arguments
+    }
+
+    fun beforeUpdateInstance(instance: T, arguments: Map<String, Any?>): Map<String, Any?> {
+        return arguments
     }
 }
 
